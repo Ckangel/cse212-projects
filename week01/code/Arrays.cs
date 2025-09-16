@@ -41,11 +41,7 @@ public static class Arrays
         List<int> tail = data.GetRange(count - amount, amount);
         List<int> head = data.GetRange(0, count - amount);
 
-        // Step 3: Split into head and tail
-        List<int> head = data.GetRange(0, count - amount);
-        List<int> tail = data.GetRange(count - amount, amount);
-
-        // Step 4: Clear the original list and reconstruct tail first, the head
+        // Step 3: Clear the original list and reconstruct tail first, then head
         data.Clear();
         data.AddRange(tail);
         data.AddRange(head);
