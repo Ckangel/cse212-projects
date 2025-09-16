@@ -11,15 +11,11 @@ public static class Arrays
 
     public static double[] MultiplesOf(double value, int count)
     {
-        // Step 1: Create an array to hold the result
         double[] result = new double[count];
-        // Step 2: Loop through from 1 to length
         for (int i = 0; i < count; i++)
         {
-            // Step 3: Calculate the i-th multiple and store it
             result[i] = value * (i + 1);
         }
-        // Step 4: Return the filled array
         return result;
     }
 
