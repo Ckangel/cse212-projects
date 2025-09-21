@@ -30,11 +30,11 @@
 
         foreach (int number in data)
         {
-            if (!seen.Add(number)}
-        {
-            duplicates.Add(number);
+            if (!seen.Add(number))
+            {
+                duplicates.Add(number);
+            }
         }
-    }
         return duplicates.Count; 
     }
 }

@@ -26,9 +26,7 @@ public class PriorityQueueTests
     }
 
     // Add more test cases as needed below.
-}
-
- [TestMethod]
+    [TestMethod]
     // Scenario: Enqueue multiple items with different priorities.
     // Expected Result: Always returns highest priority first.
     // Defect(s) Found: Loop skipped last item, so highest-priority at the end was ignored.
