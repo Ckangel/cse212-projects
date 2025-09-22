@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public static class Divisors {
     /// <summary>
     /// Entry point for the Divisors class
@@ -20,9 +23,11 @@ public static class Divisors {
         List<int> results = new();
         // TODO problem 1
         for (int i = 1; i < number; i++) {
-        if (number % i == 0) {
-            results.Add(i);
+            if (number % i == 0)
+            {
+                results.Add(i);
+            }
         }
+        return results;
     }
-    return results;
 }
