@@ -146,4 +146,87 @@ public class LinkedList : IEnumerable<int>
                 }
                 else
                 {
-                    curr.Prev!.Next
+                    curr.Prev!.Next = curr.Next;
+                    curr.Next!.Prev = curr.Prev;
+                }
+                return;
+            }
+            curr = curr.Next;
+        }
+    }
+
+    /// <summary>
+    /// Search for all instances of 'oldValue' and replace the value to 'newValue'.
+    /// </summary>
+    public void Replace(int oldValue, int newValue)
+    {
+        Node? curr = _head;
+        while (curr is not null)
+        {
+            if (curr.Data == oldValue)
+            {
+                curr.Data = newValue;
+            }
+            curr = curr.Next;
+        }
+    }
+
+    /// <summary>
+    /// Iterate backward through the Linked List
+    /// </summary>
+    public IEnumerable Reverse()
+    {
+        var curr = _tail;
+        while (curr is not null)
+        {
+            yield return curr.Data;
+            curr = curr.Prev;
+        }
+    }
+
+    /// <summary>
+    /// Iterate forward through the Linked List
+    /// </summary>
+    public IEnumerator<int> GetEnumerator()
+    {
+        var curr = _head;
+        while (curr is not null)
+        {
+            yield return curr.Data;
+            curr = curr.Next;
+        }
+    }
+
+    /// <summary>
+    /// Yields all values in the linked list
+    /// </summary>
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+
+    public override string ToString()
+    {
+        return "<LinkedList>{" + string.Join(", ", this) + "}";
+    }
+
+    // Just for testing.
+    public bool HeadAndTailAreNull()
+    {
+        return _head is null && _tail is null;
+    }
+
+    // Just for testing.
+    public bool HeadAndTailAreNotNull()
+    {
+        return _head is not null && _tail is not null;
+    }
+}
+
+public static class IntArrayExtensionMethods
+{
+    public static string AsString(this IEnumerable array)
+    {
+        return "<IEnumerable>{" + string.Join(", ", array.Cast<int>()) + "}";
+    }
+}
